@@ -1,0 +1,15 @@
+﻿<Window x:Class="MulticastChat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MulticastChat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="120" Width="400">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Введите свое имя:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="182,13,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" FontSize="20"/>
+        <Button Content="Готово" HorizontalAlignment="Left" Margin="272,47,0,0" VerticalAlignment="Top" FontSize="20" Width="100"/>
+
+    </Grid>
+</Window>
