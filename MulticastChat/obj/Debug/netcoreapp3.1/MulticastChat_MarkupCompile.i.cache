@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Luka_ry90\source\repos\NetworkProgramming\MulticastChat\MulticastChat\App.xaml
-11151548125
+2-1106032659
 
-5-676309777
+6-554222170
 1921654412462
-MainWindow.xaml;
+ChatWindow.xaml;MainWindow.xaml;
 
-False
+True
 

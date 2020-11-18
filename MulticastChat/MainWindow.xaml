@@ -8,8 +8,8 @@
         Title="MainWindow" Height="120" Width="400">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Введите свое имя:" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Margin="182,13,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" FontSize="20"/>
-        <Button Content="Готово" HorizontalAlignment="Left" Margin="272,47,0,0" VerticalAlignment="Top" FontSize="20" Width="100"/>
+        <TextBox HorizontalAlignment="Left" Name="nameTextBox" Margin="182,13,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="190" FontSize="20"/>
+        <Button Content="Готово" Click="SendName" HorizontalAlignment="Left" Margin="272,47,0,0" VerticalAlignment="Top" FontSize="20" Width="100"/>
 
     </Grid>
 </Window>

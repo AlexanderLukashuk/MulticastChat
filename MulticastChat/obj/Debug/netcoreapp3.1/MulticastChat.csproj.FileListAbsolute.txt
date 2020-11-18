@@ -17,3 +17,5 @@ C:\Users\Luka_ry90\source\repos\NetworkProgramming\MulticastChat\MulticastChat\o
 C:\Users\Luka_ry90\source\repos\NetworkProgramming\MulticastChat\MulticastChat\obj\Debug\netcoreapp3.1\MulticastChat.dll
 C:\Users\Luka_ry90\source\repos\NetworkProgramming\MulticastChat\MulticastChat\obj\Debug\netcoreapp3.1\MulticastChat.pdb
 C:\Users\Luka_ry90\source\repos\NetworkProgramming\MulticastChat\MulticastChat\obj\Debug\netcoreapp3.1\MulticastChat.genruntimeconfig.cache
+C:\Users\Luka_ry90\source\repos\NetworkProgramming\MulticastChat\MulticastChat\obj\Debug\netcoreapp3.1\ChatWindow.g.cs
+C:\Users\Luka_ry90\source\repos\NetworkProgramming\MulticastChat\MulticastChat\obj\Debug\netcoreapp3.1\ChatWindow.baml
