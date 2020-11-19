@@ -16,9 +16,9 @@
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
 
-        <ListBox x:Name="chatBox" Grid.ColumnSpan="2" />
-        <TextBox x:Name="messageTextBox" Grid.Column="0" Grid.Row="1" Background="#FFE6E6E6" />
-        <Button x:Name="sendButton" Grid.Column="1" Grid.Row="1" Content=">>>" FontSize="22" Click="SendMessage" />
+        <ListBox x:Name="chatBox" Grid.ColumnSpan="2" FontSize="25" />
+        <TextBox x:Name="messageTextBox" Grid.Column="0" Grid.Row="1" Background="#FFE6E6E6" FontSize="25" />
+        <Button x:Name="sendButton" Grid.Column="1" Grid.Row="1" Content="Send" FontSize="22" Click="SendMessage" />
 
     </Grid>
 </Window>
