@@ -54,7 +54,7 @@ namespace MulticastChat
 
         private async void SendMessage(object sender, RoutedEventArgs e)
         {
-            UdpClient client = new UdpClient(); // создаем UdpClient для отправки
+            UdpClient client = new UdpClient();
             IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("225.1.10.8"), 8001);
             string message = String.Empty;
             try
@@ -63,13 +63,13 @@ namespace MulticastChat
                 {
                     Dispatcher.Invoke(() =>
                     {
-                        message = messageTextBox.Text; // сообщение для отправки
+                        message = messageTextBox.Text;
 
-                        });
+                    });
 
                     message = $"{username}: {message}";
                     byte[] data = Encoding.UTF8.GetBytes(message);
-                    client.SendAsync(data, data.Length, endPoint); // отправка
+                    client.SendAsync(data, data.Length, endPoint);
 
                     Dispatcher.Invoke(() =>
                     {
