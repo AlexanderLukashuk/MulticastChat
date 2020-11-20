@@ -23,6 +23,7 @@ namespace MulticastChat
     {
         private readonly ObservableCollection<string> messages = new ObservableCollection<string>();
         private string username;
+        UdpClient client;
         public ChatWindow(string name)
         {
             InitializeComponent();
@@ -31,25 +32,30 @@ namespace MulticastChat
             chatBox.ItemsSource = messages;
         }
 
-        private async void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Добро пожаловать, {username}");
-            var recieverUdpClient = new UdpClient(8001);
+            messages.Add($"Добро пожаловать, {username}");
+            //var recieverUdpClient = new UdpClient(8001);
 
             try
             {
-                recieverUdpClient.JoinMulticastGroup(IPAddress.Parse("225.1.10.8"), 10);
+                client = new UdpClient(8001);
+                //recieverUdpClient.JoinMulticastGroup(IPAddress.Parse("225.1.10.8"), 10);
+                client.JoinMulticastGroup(IPAddress.Parse("225.1.10.8"), 10);
+
+                Task receiveTask = new Task(ReceiveMessages);
+                receiveTask.Start();
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
             }
 
-            while (true)
-            {
-                var result = await recieverUdpClient.ReceiveAsync();
-                messages.Add(Encoding.UTF8.GetString(result.Buffer));
-            }
+            //while (true)
+            //{
+            //    var result = await recieverUdpClient.ReceiveAsync();
+            //    messages.Add(Encoding.UTF8.GetString(result.Buffer));
+            //}
         }
 
         private async void SendMessage(object sender, RoutedEventArgs e)
@@ -83,6 +89,47 @@ namespace MulticastChat
             }
 
             client.Close();
+        }
+
+        private async void ReceiveMessages()
+        {
+            //while (true)
+            //{
+            //    var result = await client.ReceiveAsync();
+            //    messages.Add(Encoding.UTF8.GetString(result.Buffer));
+            //}
+
+            bool alive = true;
+            try
+            {
+                while (alive)
+                {
+                    //IPEndPoint remoteIp = null;
+                    //byte[] data = client.Receive(ref remoteIp);
+                    //string message = Encoding.UTF8.GetString(data);
+                    //message = $"{username}: {message}";
+
+                    //// добавляем полученное сообщение в текстовое поле
+                    //messages.Add(message);
+
+                    var result = await client.ReceiveAsync();
+                    Dispatcher.Invoke(() =>
+                    {
+                        messages.Add(Encoding.UTF8.GetString(result.Buffer));
+                    });
+
+                }
+            }
+            catch (ObjectDisposedException)
+            {
+                if (!alive)
+                    return;
+                throw;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }
